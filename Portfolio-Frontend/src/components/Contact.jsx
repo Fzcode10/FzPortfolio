@@ -104,11 +104,11 @@ export default function Contact() {
 
     const apiUrl =
       import.meta.env.VITE_API_URL ||
-      import.meta.env.API_URL ||
-      'http://localhost:5000/api/contact';
+      'http://localhost:5000/';
+
 
     try {
-      const response = await fetch(apiUrl, {
+      const response = await fetch(`${apiUrl}api/contact`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
