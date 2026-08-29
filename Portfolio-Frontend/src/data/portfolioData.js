@@ -17,7 +17,7 @@ const portfolioData = {
   },
 
   links: {
-    resume: "https://drive.google.com/file/d/1p71h95XoCqdI_XNEjLO6Jqpv-kieO8Ns/view?usp=sharing",
+    resume: "https://drive.google.com/file/d/1prFBzjnFsxBFWvDJeycAdr097oMMqBcn/view?usp=sharing",
     github: "https://github.com/Fzcode10",        // REPLACE WITH YOUR GITHUB
     linkedin: "https://www.linkedin.com/in/faij-ahamad-8a97a434b/", // REPLACE WITH YOUR LINKEDIN
     leetcode: "https://leetcode.com/u/FzTech/",    
