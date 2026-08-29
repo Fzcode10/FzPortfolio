@@ -102,13 +102,13 @@ export default function Contact() {
     setStatus('sending');
     setErrorMessage('');
 
-    const apiUrl =
-      import.meta.env.VITE_API_URL ||
-      'http://localhost:5000/';
+    // const apiUrl =
+    //   import.meta.env.VITE_API_URL ||
+    //   'http://localhost:5000/';
 
 
     try {
-      const response = await fetch(`${apiUrl}api/contact`, {
+      const response = await fetch(`https://fzportfolio-wvbv.onrender.com/api/contact`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -124,7 +124,7 @@ export default function Contact() {
       const data = await response.json().catch(() => ({}));
 
       if (!response.ok || !data.success) {
-        throw new Error(data.message || 'Unable to send message right now.');
+        throw new Error(data.message || 'Unable to send message right now. You can text me at whatsapp.');
       }
 
       setStatus('sent');

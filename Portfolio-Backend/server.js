@@ -183,7 +183,7 @@ app.post("/api/contact", async (req, res) => {
 
     return res.status(500).json({
       success: false,
-      message: "Failed to send message. Please try again later.",
+      message: "Failed to send message. Please try again later or conect me at Whatsapp.",
       error: process.env.NODE_ENV === "development" ? error.message : undefined,
     });
   }
