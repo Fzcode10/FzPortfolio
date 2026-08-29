@@ -1,0 +1,235 @@
+.edu__timeline {
+  position: relative;
+  padding-left: 48px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.edu__timeline::before {
+  content: '';
+  position: absolute;
+  left: 16px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--purple), rgba(79, 124, 255, 0.3), rgba(124, 92, 255, 0.05));
+  border-radius: 2px;
+}
+
+.edu-card {
+  position: relative;
+  margin-bottom: 28px;
+}
+
+.edu-card:last-child {
+  margin-bottom: 0;
+}
+
+.edu-card__dot {
+  position: absolute;
+  left: -40px;
+  top: 28px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--bg-secondary);
+  border: 2px solid var(--purple);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.edu-card__dot-inner {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--purple);
+}
+
+.edu-card__body {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 28px;
+  transition: var(--transition);
+}
+
+.edu-card__body:hover {
+  border-color: var(--border-purple);
+  box-shadow: var(--shadow-glow);
+}
+
+.edu-card__header {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.edu-card__icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(135deg, rgba(124, 92, 255, 0.2), rgba(79, 124, 255, 0.1));
+  border: 1px solid rgba(124, 92, 255, 0.2);
+  border-radius: var(--radius-md);
+  color: var(--purple-light);
+  flex-shrink: 0;
+}
+
+.edu-card__title-area {
+  flex: 1;
+}
+
+.edu-card__badge {
+  display: inline-block;
+  padding: 2px 10px;
+  background: rgba(124, 92, 255, 0.1);
+  border: 1px solid rgba(124, 92, 255, 0.25);
+  border-radius: 100px;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--purple-light);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.edu-card__institution {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 3px;
+}
+
+.edu-card__degree {
+  font-size: 14px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.edu-card__result {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--purple-light);
+  white-space: nowrap;
+  padding: 6px 12px;
+  background: rgba(124, 92, 255, 0.08);
+  border: 1px solid rgba(124, 92, 255, 0.15);
+  border-radius: var(--radius-md);
+  flex-shrink: 0;
+}
+
+.edu-card__info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.edu-card__info-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.edu-card__info-item svg {
+  color: var(--purple-light);
+}
+
+.edu-card__coursework {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.edu-card__coursework-label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.edu-card__coursework-label svg {
+  color: var(--purple-light);
+}
+
+.edu-card__coursework-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .edu__timeline {
+    padding-left: 32px;
+  }
+  .edu__timeline::before {
+    left: 8px;
+  }
+  .edu-card__dot {
+    left: -24px;
+  }
+  .edu-card__body {
+    padding: 20px;
+  }
+  .edu-card__header {
+    flex-wrap: wrap;
+  }
+  .edu-card__result {
+    margin-left: 58px;
+  }
+}
+
+@media (max-width: 480px) {
+  .edu__timeline {
+    padding-left: 24px;
+  }
+  .edu__timeline::before {
+    left: 4px;
+  }
+  .edu-card__dot {
+    left: -20px;
+    width: 12px;
+    height: 12px;
+  }
+  .edu-card__body {
+    padding: 16px 14px;
+  }
+  .edu-card__result {
+    margin-left: 0;
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+  .edu-card__institution {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 360px) {
+  .edu__timeline {
+    padding-left: 18px;
+  }
+  .edu-card__dot {
+    left: -14px;
+    top: 22px;
+  }
+  .edu-card__body {
+    padding: 12px 10px;
+  }
+  .edu-card__icon-wrap {
+    width: 38px;
+    height: 38px;
+  }
+}

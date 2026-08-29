@@ -1,0 +1,133 @@
+.about__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.about__text {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.about__heading {
+  text-align: left;
+}
+
+.about__para {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.9;
+}
+
+/* Strengths */
+.about__strengths {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 32px;
+  position: sticky;
+  top: 88px;
+}
+
+.about__strengths-heading {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.about__strengths-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.strength-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  transition: var(--transition);
+  cursor: default;
+}
+
+.strength-card:hover {
+  background: rgba(124, 92, 255, 0.08);
+  border-color: var(--border-purple);
+  transform: translateY(-2px);
+}
+
+.strength-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, rgba(124, 92, 255, 0.2), rgba(79, 124, 255, 0.1));
+  border-radius: var(--radius-sm);
+  color: var(--purple-light);
+  flex-shrink: 0;
+}
+
+.strength-card__label {
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  line-height: 1.3;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .about__grid {
+    gap: 48px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about__grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .about__strengths {
+    position: static;
+  }
+  .about__heading {
+    text-align: left;
+  }
+}
+
+@media (max-width: 480px) {
+  .about__strengths {
+    padding: 20px 16px;
+  }
+  .about__strengths-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .strength-card {
+    padding: 10px 10px;
+  }
+}
+
+@media (max-width: 360px) {
+  .about__strengths {
+    padding: 16px 12px;
+  }
+  .about__strengths-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+  }
+  .strength-card {
+    padding: 8px;
+  }
+  .strength-card__label {
+    font-size: 11px;
+  }
+}
