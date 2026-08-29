@@ -7,7 +7,7 @@ const app = express();
 
 // Parse CLIENT_URL from environment or allow localhost defaults
 const allowedOrigins = (
-  process.env.CLIENT_URL || "http://localhost:5173,http://localhost:3000,http://localhost:4173"
+  process.env.CLIENT_URL
 )
   .split(",")
   .map((url) => url.trim().replace(/\/$/, ""));
@@ -15,7 +15,7 @@ const allowedOrigins = (
 app.use(
   cors({
     origin: (origin, callback) => {
-      // Allow requests with no origin (e.g. mobile apps, curl, uptime monitors)
+      
       if (!origin) return callback(null, true);
       if (allowedOrigins.includes("*") || allowedOrigins.includes(origin)) {
         return callback(null, true);
@@ -184,7 +184,7 @@ app.post("/api/contact", async (req, res) => {
       message: "Message sent successfully!",
     });
   } catch (error) {
-    console.error("❌ Email sending error:", error);
+    console.error("Email sending error:", error);
 
     return res.status(500).json({
       success: false,
@@ -196,5 +196,5 @@ app.post("/api/contact", async (req, res) => {
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`🚀 Portfolio backend running on port ${PORT}`);
+  console.log(`Portfolio backend running on port ${PORT}`);
 });
