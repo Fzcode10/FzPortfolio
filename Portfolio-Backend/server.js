@@ -5,29 +5,8 @@ require("dotenv").config();
 
 const app = express();
 
-// Parse CLIENT_URL from environment or allow localhost defaults
-const allowedOrigins = (
-  process.env.CLIENT_URL
-)
-  .split(",")
-  .map((url) => url.trim().replace(/\/$/, ""));
-
-app.use(
-  cors({
-    origin: (origin, callback) => {
-      
-      if (!origin) return callback(null, true);
-      if (allowedOrigins.includes("*") || allowedOrigins.includes(origin)) {
-        return callback(null, true);
-      }
-      // Allow any origin if in development or permissive fallback for hosting
-      return callback(null, true);
-    },
-    methods: ["GET", "POST", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-    credentials: true,
-  })
-);
+// Enable CORS for all incoming origins and URLs
+app.use(cors());
 
 app.use(express.json());
 
