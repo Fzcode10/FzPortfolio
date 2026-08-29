@@ -10,23 +10,32 @@ app.use(cors());
 
 app.use(express.json());
 
-// Transporter configuration with Gmail
+// Transporter configuration with Gmail (Port 465 SSL is more reliable on cloud hosts like Render)
 const transporter = nodemailer.createTransport({
-  service: "gmail",
+  host: "smtp.gmail.com",
+  port: 465,
+  secure: true,
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS,
   },
+  connectionTimeout: 10000,
+  greetingTimeout: 10000,
+  socketTimeout: 15000,
 });
 
 // Verify transporter connection on startup
-transporter.verify((error, success) => {
-  if (error) {
-    console.error("Mail Transporter verification failed:", error.message);
-  } else {
-    console.log("Mail Transporter is ready to send emails");
-  }
-});
+if (process.env.EMAIL_USER && process.env.EMAIL_PASS) {
+  transporter.verify((error, success) => {
+    if (error) {
+      console.error("Mail Transporter verification failed:", error.message);
+    } else {
+      console.log("Mail Transporter is ready to send emails");
+    }
+  });
+} else {
+  console.warn("EMAIL_USER or EMAIL_PASS environment variables are missing!");
+}
 
 // Utility to escape HTML and prevent injection in email
 const escapeHtml = (text) => {
@@ -59,6 +68,13 @@ app.get("/api/health", (req, res) => {
 // Contact form API route
 app.post("/api/contact", async (req, res) => {
   try {
+    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+      return res.status(500).json({
+        success: false,
+        message: "Email service credentials are not configured on the server.",
+      });
+    }
+
     const { name, email, subject, message } = req.body;
 
     // Validate required fields
