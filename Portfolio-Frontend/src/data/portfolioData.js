@@ -34,7 +34,7 @@ const portfolioData = {
     // The path below maps to: http://localhost:5173/images/profile.png
     // If the file doesn't exist, the "FA" initials placeholder is shown.
     // ===================================================
-    profileImage: "/public/images/Profile2.png",
+    profileImage: "https://res.cloudinary.com/dwmjn9qgq/image/upload/v1788026342/Profile2_scecnh.png",
     techStack: ["React.js", "Node.js", "Express.js", "MongoDB", "MySQL", "Java"],
   },
 
